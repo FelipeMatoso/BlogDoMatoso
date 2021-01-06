@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"]="Me ajude a melhorar, deixe um depoimento!";
+}
+<div class="main">
+
+
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="caixa-de-depoimento">
+        <form method="post">
+            <label for="nome-feedback">Insira seu primeiro nome, participe da contagem de colaboradores!</label>
+            <input id="nome-feedback" placeholder="Primeiro nome apenas" />
+
+            <div class="pega-depoimento">
+                <textarea id="depoimento" rows="5" cols="6" class="area_texto "></textarea>
+
+                <input type="button" class="botao" id="botaoSubmit" value="Ajudar!">
+            </div>
+        </form>
+    </div>
+
+    <div class="grid-posts">
+        <div class="grid-depoimentos">
+            <div id="depoimento-nome" class="depoimento-nome-classe">Otavio</div>
+            <div id="depoimento-text" class="depoimento-text-classe">Acredito que ajustar melhor as divs possa te ajudar e preciso aprender com e ele como fazer um request,puxar dados de bancos e tudo mais.e preciso aprender com e ele como fazer um request,puxar dados de bancos e tudo mais.</div>
+            <div id="depoimento-tempo" class="depoimento-tempo-classe">01/12/2020</div>
+        </div>
+    </div>
+

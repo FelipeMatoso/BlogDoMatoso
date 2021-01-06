@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Blog_do_Matoso</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/header.css" />
+    <link rel="stylesheet" href="~/css/main.css" />
+    <link rel="stylesheet" href="~/css/index/index.css" />
+    <link rel="stylesheet" href="~/css/texting/texting.css" />
+    <link href="~/css/paginaCadastro.css" rel="stylesheet" />
+    <asp: ScriptManager runat="server" ID="sm1" EnablePageMethods="true" />
+
+
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container espacamento">
+                <a class="navbar-brand cabecalho">Blog do Matoso</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Texting">Escreva algo!</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Sobre">Sobre Matoso</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <div class="login_box">
+                        <div class="login_box_login">
+                            <button class="nav-link text-dark botao-login botao" onclick="displayBarraLogin()">Login</button>
+                            <input class="input_login" type="text" id="login_usuario" placeholder="Nome de login" />
+                            <input class="input_login" type="text" id="login_senha" placeholder="Senha" />
+                        </div>
+                        <div class="login_box_cadastro">
+                            <button class="nav-link text-dark botao-login botao" onclick="displayCaixaCadastro()">Cadastro</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="cadastro_popUP" id="cadastro_popUP">
+        <div class="cadastro_header"><h3>Pagina de cadastro</h3></div>
+
+        <div class="cadastro_main">
+            <form id="formsCadastro" > 
+                <label>
+                    <input id="nome" type="text" placeholder="Primeiro nome" />
+                </label>
+                <label>
+                    <input id="senha" type="password" placeholder="ex: MestreDoTerraPlanismo1029" />
+                </label>
+                <input id="cookieLogin" type="checkbox"  name="salvaDados"
+                       checked>
+                <label for="salvaDados">Lembrar meu cadastro</label>
+                <button type="submit"> Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+
+    <footer class="border-top footer text-muted">
+        <div class="container ">
+            &copy; 2020 - Blog do Matoso - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js">SubmitDica</script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/submit_texto.js" asp-append-version="true"></script>
+    <script src="~/js/DBRequisitaDepoimentosAntigos.js" asp-append-version="true"></script>
+    <script src="~/js/postaConteudo.js" asp-append-version="true"></script>
+    <script src="~/js/fucõesDoCss.js" asp-append-version="true"></script>
+    <script src="~/js/adicionaUsuario.js" asp-append-version="true"></script>
+    @RenderSection("Scripts" , required: false)
+</body>
+</html>

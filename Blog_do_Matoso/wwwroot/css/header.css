@@ -1,0 +1,49 @@
+﻿.menu-proprio {
+    background: #321f28;
+    padding: 20px;
+}
+
+header li:hover {
+    font-size: 20px;
+    transition: 0.2s;
+    color: green !important;
+}
+
+header li {
+    font-size: 15px;
+    transition: 0.5s;
+}
+
+.loose_header {
+    position: fixed;
+}
+
+.login_box {
+    display: grid;
+}
+
+.botao {
+    border: 0;
+    border-radius: 20px;
+}
+
+.login_box_login {
+    grid-column-start: -3;
+    padding: 0 10px 0 0;
+}
+
+.login_box_login_cadastro {
+    grid-column-start: 2;
+    padding: 0 0 0 10px;
+}
+
+.botao-login {
+    font-size: 20px;
+    text-align: center;
+}
+
+.input_login {
+    display: none;
+    transition: 0;
+}
+

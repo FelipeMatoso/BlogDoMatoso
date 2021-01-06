@@ -1,0 +1,19 @@
+﻿.cadastro_popUP {
+    display: none;
+    padding: 6% 40% 17% 33%;
+    position:fixed;
+    border:0;
+    border-radius:16px;
+}
+
+.cadastro_header {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+}
+
+.cadastro_main {
+    grid-column-start:1;
+    grid-row-start: 2;
+    padding:12px;
+}

@@ -1,0 +1,32 @@
+﻿
+.area_texto {
+    background: #795959;
+    color: #ffffff !important;
+    font-size: 30px;
+    border-style: hidden;
+    border-radius: 12px;
+}
+
+.pega-depoimento {
+    display:grid;
+    padding: 0 0 30px 0;
+
+}
+
+.pega-depoimento textarea{
+    grid-column-start:1;
+    grid-column-end:4;
+    grid-row-start:1;
+    grid-row-end:4;
+    
+}
+.pega-depoimento input{
+    grid-column-start:3;
+    grid-row-start:5;
+}
+
+
+input[type=button] {
+    padding: 16px 32px;
+    cursor: context-menu;
+}
