@@ -66,7 +66,10 @@ namespace Blog_do_Matoso.Controllers
         {
             return dataService.ValidacaoUsuario(nome);
         }
-        //public bool validaUserLogin(string nome, string senha){}
+        public bool validaUserLogin(string nome, string senha)
+        {
+            return false;
+        }
         public Usuario SalvaUsuario(string nome , string senha)
         {
             Usuario usuario = new Usuario
