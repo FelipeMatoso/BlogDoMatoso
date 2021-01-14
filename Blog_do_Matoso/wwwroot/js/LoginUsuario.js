@@ -6,9 +6,9 @@
     let cookie = $("#loginCheckbox");
 
     let objCadastro = MontaObjetoDeUsuario(nome, senha);
+
         if (ValidaUsuarioNoBanco(objCadastro) == true) {
             console.log("entro validacao do banco")
-            console.log(objCadastro);
             //SalvaUsuarioDB(objCadastro);
         }
 
@@ -29,7 +29,7 @@ function ValidaUsuarioNoBanco(objCadastro) {
     let valida
     $.ajax({
         method: "GET",
-        url: "/home/validaUserDB",
+        url: "/home/validaUserLogin",
         dataType: 'json',
         data: objCadastro,
         async: false,
@@ -72,6 +72,6 @@ function CookieMaker(objCadastro) {
 }
 
 function limpaCamposCadastro() {
-    $("#nome").val('');
-    $("#senha").val('');
+    $("#loginUsuario").val('');
+     $("#loginSenha").val('');
 }
