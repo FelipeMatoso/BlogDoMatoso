@@ -1,6 +1,5 @@
 ﻿$("#formsLogin").submit(function (e) {
     e.preventDefault();
-    console.log("entro");
     let nome = $("#loginUsuario").val();
     let senha = $("#loginSenha").val();
     let cookie = $("#loginCheckbox");
@@ -26,10 +25,12 @@ function MontaObjetoDeUsuario(nome, senha) {
 }
 
 function ValidaUsuarioNoBancoLogin(objCadastro) {
-    let valida
+    let valida;
+    console.log("entro validacao")
+    console.log(objCadastro)
     $.ajax({
         method: "GET",
-        url: "/home/validaUserLogin",
+        url: "/home/ValidaUserLogin",
         dataType: 'json',
         data: objCadastro,
         async: false,
@@ -37,8 +38,11 @@ function ValidaUsuarioNoBancoLogin(objCadastro) {
             console.log("Validando Usuario...");
         }
     })
+        .fail(function (response) {
+            console.log("erro" + response)
+        })
         .done(function (response) {
-            console.log(response);
+            console.log(response +" foda");
             valida = response;
             return response;
         });
