@@ -8,6 +8,7 @@ Git
 
 -edit => edição de nome de classe, função ou arquivo
 
+-addfile => adiciona arquivo
 -refactor => refatoração  
 
 -config => configurações que não alteram  
