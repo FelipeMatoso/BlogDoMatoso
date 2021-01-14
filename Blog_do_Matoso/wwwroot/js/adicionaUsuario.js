@@ -45,7 +45,7 @@ function ValidaUsuarioNoBanco(objCadastro) {
     let valida
     $.ajax({
         method: "GET",
-        url: "/home/validaUserDB",
+        url: "/home/validaUserCadastroDB",
         dataType: 'json',
         data: objCadastro,
         async:false,
