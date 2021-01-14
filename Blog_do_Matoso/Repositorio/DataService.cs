@@ -20,7 +20,7 @@ namespace Blog_do_Matoso
                 this.dBcontext=dBcontext;
             }
 
-           
+
 
             public object IniciaDB()
             {
@@ -40,7 +40,7 @@ namespace Blog_do_Matoso
             {
                 var user = dBcontext.Usuarios.FirstOrDefault(x => x.Nome==nome);
 
-                if (user == null)
+                if (user==null)
                 {
                     return true;
                 }
@@ -54,10 +54,7 @@ namespace Blog_do_Matoso
                 return usuario;
             }
 
-            bool IDataService.ValidacaoUsuarioLogin(string nome , string senha)
-            {
-                throw new NotImplementedException();
-            }
+
         }
 
     }
