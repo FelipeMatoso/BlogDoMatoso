@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RhyWzFKYkRLXbql0QxtZwb9EUp0PiE6mWj7aX2XVtX1Nztf/pHb9JhQIWZo38ci6eL1MBfBf1drnraJyCXNW2A==",
+  "dgSpecHash": "VUSZ83E8tnmfG8PPFFaaqFjVhCyNuKf7B47EGhVHdJVDM/OtzIVOdpZV05WkGRVSjSi7mjown/TxS6XMLHy/wA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\source\\repos\\FelipeMatoso\\Blog-Pessoal\\Blog_do_Matoso\\Blog_do_Matoso.csproj",
+  "projectFilePath": "D:\\GitRepositorio\\Cursos\\BlogDoMatoso\\Blog_do_Matoso\\Blog_do_Matoso.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

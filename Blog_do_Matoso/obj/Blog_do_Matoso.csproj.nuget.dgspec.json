@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\source\\repos\\FelipeMatoso\\Blog-Pessoal\\Blog_do_Matoso\\Blog_do_Matoso.csproj": {}
+    "D:\\GitRepositorio\\Cursos\\BlogDoMatoso\\Blog_do_Matoso\\Blog_do_Matoso.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\source\\repos\\FelipeMatoso\\Blog-Pessoal\\Blog_do_Matoso\\Blog_do_Matoso.csproj": {
+    "D:\\GitRepositorio\\Cursos\\BlogDoMatoso\\Blog_do_Matoso\\Blog_do_Matoso.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\FelipeMatoso\\Blog-Pessoal\\Blog_do_Matoso\\Blog_do_Matoso.csproj",
+        "projectUniqueName": "D:\\GitRepositorio\\Cursos\\BlogDoMatoso\\Blog_do_Matoso\\Blog_do_Matoso.csproj",
         "projectName": "Blog_do_Matoso",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\FelipeMatoso\\Blog-Pessoal\\Blog_do_Matoso\\Blog_do_Matoso.csproj",
+        "projectPath": "D:\\GitRepositorio\\Cursos\\BlogDoMatoso\\Blog_do_Matoso\\Blog_do_Matoso.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\FelipeMatoso\\Blog-Pessoal\\Blog_do_Matoso\\obj\\",
+        "outputPath": "D:\\GitRepositorio\\Cursos\\BlogDoMatoso\\Blog_do_Matoso\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",

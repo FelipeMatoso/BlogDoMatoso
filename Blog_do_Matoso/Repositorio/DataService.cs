@@ -2,6 +2,7 @@
 using Blog_do_Matoso.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Blog_do_Matoso
 {
@@ -34,9 +35,23 @@ namespace Blog_do_Matoso
 
             }
 
-            public bool Validacao()
+            public Usuario SalvaUsuarioDB(Usuario usuario)
             {
-                throw new NotImplementedException();
+                Console.WriteLine(usuario);
+                dBcontext.Usuarios.Add(usuario);
+                dBcontext.SaveChanges();
+                return usuario;
+            }
+
+            public bool ValidacaoUsuario(string nome)
+            {
+                var user = dBcontext.Usuarios.FirstOrDefault(x => x.Nome==nome);
+
+                if (user == null)
+                {
+                    return true;
+                }
+                return false;
             }
         }
 

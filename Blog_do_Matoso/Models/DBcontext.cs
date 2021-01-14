@@ -17,6 +17,9 @@ namespace Blog_do_Matoso.Models
             modelBuilder.Entity<Depoimentos>().HasKey(t => t.Id);
         }
 
-        public DbSet<Depoimentos> Depoimentos { get; set; } 
+        public DbSet<Depoimentos> Depoimentos { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+
+
     }
 }

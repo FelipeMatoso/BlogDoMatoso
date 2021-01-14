@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="~/css/main.css" />
     <link rel="stylesheet" href="~/css/index/index.css" />
     <link rel="stylesheet" href="~/css/texting/texting.css" />
-    <link href="~/css/paginaCadastro.css" rel="stylesheet" />
     <asp: ScriptManager runat="server" ID="sm1" EnablePageMethods="true" />
 
 
@@ -42,12 +41,10 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <div class="login_box">
                         <div class="login_box_login">
-                            <button class="nav-link text-dark botao-login botao" onclick="displayBarraLogin()">Login</button>
-                            <input class="input_login" type="text" id="login_usuario" placeholder="Nome de login" />
-                            <input class="input_login" type="text" id="login_senha" placeholder="Senha" />
+                            <button class="nav-link text-dark botao-login botao" type="button" data-toggle="modal" data-target="#ModalLogin">Login</button>
                         </div>
                         <div class="login_box_cadastro">
-                            <button class="nav-link text-dark botao-login botao" onclick="displayCaixaCadastro()">Cadastro</button>
+                            <button class="nav-link text-dark botao-login botao" type="button" data-toggle="modal" data-target="#ModalCadastros">Cadastro</button>
                         </div>
                     </div>
                 </div>
@@ -55,22 +52,84 @@
         </nav>
     </header>
 
-    <div class="cadastro_popUP" id="cadastro_popUP">
-        <div class="cadastro_header"><h3>Pagina de cadastro</h3></div>
+    <div class="modal fade" id="ModalLogin" tabindex="-1" role="dialog" aria-labelledby="ModalLoginTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLoginTitle">Login de Usuário</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formsLogin">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Usuario</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="loginUsuario" placeholder="nome de usuário">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Senha</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="loginSenha" placeholder="senha de usuário">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="loginCheckbox">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Lembrar meu login
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary"> Entrar!</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <div class="cadastro_main">
-            <form id="formsCadastro" > 
-                <label>
-                    <input id="nome" type="text" placeholder="Primeiro nome" />
-                </label>
-                <label>
-                    <input id="senha" type="password" placeholder="ex: MestreDoTerraPlanismo1029" />
-                </label>
-                <input id="cookieLogin" type="checkbox"  name="salvaDados"
-                       checked>
-                <label for="salvaDados">Lembrar meu cadastro</label>
-                <button type="submit"> Cadastrar</button>
-            </form>
+    <div class="modal fade" id="ModalCadastros" tabindex="-1" role="dialog" aria-labelledby="ModalCadastrosTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalCadastrosTitle">Pagina de cadastro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formsCadastro">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Usuario</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="cadastroNome" placeholder="nome de usuário">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Senha</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="cadastroSenha" placeholder="senha de usuário">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary"> Cadastrar</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
         </div>
     </div>
 
@@ -99,7 +158,6 @@
     <script src="~/js/submit_texto.js" asp-append-version="true"></script>
     <script src="~/js/DBRequisitaDepoimentosAntigos.js" asp-append-version="true"></script>
     <script src="~/js/postaConteudo.js" asp-append-version="true"></script>
-    <script src="~/js/fucõesDoCss.js" asp-append-version="true"></script>
     <script src="~/js/adicionaUsuario.js" asp-append-version="true"></script>
     @RenderSection("Scripts" , required: false)
 </body>

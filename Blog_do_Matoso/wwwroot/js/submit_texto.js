@@ -46,7 +46,7 @@ function ConfereConteudo(nome) {
     if (nome == "Plinio" || nome == "Matoso" || nome == "Felipe" || nome == "Ademir" || nome == "Falavinha" || nome == "Evandro") {
         aprovado = true
     }
-    return aprovado
+    return aprovado;
 }
 
 

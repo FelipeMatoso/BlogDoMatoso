@@ -1,23 +1,18 @@
-﻿$("#formsCadastro").submit(function (e) {
+﻿$("#formsLogin").submit(function (e) {
     e.preventDefault();
     console.log("entro");
-    let nome = $("#cadastroNome").val();
-    let senha = $("#cadastroSenha").val();
+    let nome = $("#loginUsuario").val();
+    let senha = $("#loginSenha").val();
+    let cookie = $("#loginCheckbox");
 
-    let objCadastro;
-    
-    if (ValidaFormsCadastro(nome.length, senha.length) == "validado") {
-        objCadastro = MontaObjetoDeUsuario(nome, senha)
+    let objCadastro = MontaObjetoDeUsuario(nome, senha);
         if (ValidaUsuarioNoBanco(objCadastro) == true) {
             console.log("entro validacao do banco")
-                console.log(objCadastro);
-                SalvaUsuarioDB(objCadastro);
+            console.log(objCadastro);
+            //SalvaUsuarioDB(objCadastro);
         }
-    }
-    
+
     limpaCamposCadastro()
-
-
 })
 
 function MontaObjetoDeUsuario(nome, senha) {
@@ -28,18 +23,7 @@ function MontaObjetoDeUsuario(nome, senha) {
     return obj;
 }
 
-function ValidaFormsCadastro(nome, senha) {
-    if (nome >= 4 && senha >= 2) {
-        return "validado";
-    }
-    else {
-        if (nome< 4) {
-            alert("Nome com " + nome + ", sendo minimo 4");
-        }
-        alert("Senha com " + senha + ", sendo minimo 2");
-        return 0;
-    }
-}
+
 
 function ValidaUsuarioNoBanco(objCadastro) {
     let valida
@@ -48,7 +32,7 @@ function ValidaUsuarioNoBanco(objCadastro) {
         url: "/home/validaUserDB",
         dataType: 'json',
         data: objCadastro,
-        async:false,
+        async: false,
         beforeSend: function () {
             console.log("Validando Usuario...");
         }
@@ -87,7 +71,7 @@ function CookieMaker(objCadastro) {
     console.log("biscoito feito");
 }
 
-function limpaCamposCadastro(){
+function limpaCamposCadastro() {
     $("#nome").val('');
     $("#senha").val('');
 }

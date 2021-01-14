@@ -3,14 +3,16 @@ using Blog_do_Matoso.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Blog_do_Matoso.Migrations
 {
     [DbContext(typeof(DBcontext))]
-    partial class DBcontextModelSnapshot : ModelSnapshot
+    [Migration("20210113164054_UsuarioComDepoimentos")]
+    partial class UsuarioComDepoimentos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,7 +43,7 @@ namespace Blog_do_Matoso.Migrations
 
             modelBuilder.Entity("Blog_do_Matoso.Models.Usuario", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("IdUsuario")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -49,13 +51,13 @@ namespace Blog_do_Matoso.Migrations
                     b.Property<int>("DepoimentoId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Nome")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Senha")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Senha")
+                        .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("IdUsuario");
 
                     b.ToTable("Usuarios");
                 });
