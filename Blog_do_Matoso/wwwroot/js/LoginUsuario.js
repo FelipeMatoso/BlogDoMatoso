@@ -11,6 +11,9 @@
             console.log("entro validacao do banco")
             //SalvaUsuarioDB(objCadastro);
         }
+        else {
+            console.log("saiu false")
+        }
 
     limpaCamposCadastro()
 })
