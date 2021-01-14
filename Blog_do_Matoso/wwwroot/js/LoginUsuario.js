@@ -7,7 +7,7 @@
 
     let objCadastro = MontaObjetoDeUsuario(nome, senha);
 
-        if (ValidaUsuarioNoBanco(objCadastro) == true) {
+    if (ValidaUsuarioNoBancoLogin(objCadastro) == true) {
             console.log("entro validacao do banco")
             //SalvaUsuarioDB(objCadastro);
         }
@@ -28,7 +28,7 @@ function MontaObjetoDeUsuario(nome, senha) {
 
 
 
-function ValidaUsuarioNoBanco(objCadastro) {
+function ValidaUsuarioNoBancoLogin(objCadastro) {
     let valida
     $.ajax({
         method: "GET",
