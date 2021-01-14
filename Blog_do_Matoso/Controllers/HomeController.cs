@@ -1,9 +1,7 @@
-﻿using Blog_do_Matoso.Business;
-using Blog_do_Matoso.Models;
+﻿using Blog_do_Matoso.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Diagnostics;
-
+using Blog_do_Matoso.Interface;
 
 
 namespace Blog_do_Matoso.Controllers
@@ -13,9 +11,13 @@ namespace Blog_do_Matoso.Controllers
     public class HomeController : Controller
     {
         private readonly IDataService dataService;
-        public HomeController(IDataService dataService)
+        private readonly ILoginUsuario validacaoLoginUsuario;
+
+
+        public HomeController(IDataService dataService , ILoginUsuario validacaoLoginUsuario)
         {
             this.dataService=dataService;
+            this.validacaoLoginUsuario=validacaoLoginUsuario;
         }
 
         public IActionResult Index()
@@ -60,17 +62,19 @@ namespace Blog_do_Matoso.Controllers
 
         }
 
-        public bool ValidaUserLogin(string nome, string senha)
+        public string ValidaUserLogin(string nome, string senha)
         {
 
-            return dataService.ValidacaoUsuarioLogin(nome , senha);
+            return validacaoLoginUsuario.ValidacaoUsuarioLogin(nome , senha);
         }
+
+
 
         public bool ValidaUserCadastroDB(string nome)
         {
             return dataService.ValidacaoUsuarioCadastro(nome);
         }
-        public Usuario SalvaUsuario(string nome , string senha)
+        public Usuario CadastraUsuario(string nome , string senha)
         {
             Usuario usuario = new Usuario
             {
