@@ -7,6 +7,7 @@ using Blog_do_Matoso.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using Blog_do_Matoso.Business;
+using Blog_do_Matoso.Interface;
 
 namespace Blog_do_Matoso
 {
@@ -32,6 +33,7 @@ namespace Blog_do_Matoso
 
             services.AddScoped<IDataService , DataService>();
             services.AddScoped<IValidaDepoimento , ValidaDepoimento>();
+            services.AddScoped<ILoginUsuario , LoginUsuario>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
