@@ -13,11 +13,9 @@ namespace Blog_do_Matoso.Controllers
     public class HomeController : Controller
     {
         private readonly IDataService dataService;
-        private readonly IValidaDepoimento validaDepoimento;
-        public HomeController(IDataService dataService , IValidaDepoimento validaDepoimento)
+        public HomeController(IDataService dataService)
         {
             this.dataService=dataService;
-            this.validaDepoimento=validaDepoimento;
         }
 
         public IActionResult Index()
