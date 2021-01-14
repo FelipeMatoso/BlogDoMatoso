@@ -35,13 +35,6 @@ namespace Blog_do_Matoso
 
             }
 
-            public Usuario SalvaUsuarioDB(Usuario usuario)
-            {
-                Console.WriteLine(usuario);
-                dBcontext.Usuarios.Add(usuario);
-                dBcontext.SaveChanges();
-                return usuario;
-            }
 
             public bool ValidacaoUsuario(string nome)
             {
@@ -52,6 +45,13 @@ namespace Blog_do_Matoso
                     return true;
                 }
                 return false;
+            }
+            public Usuario SalvaUsuarioDB(Usuario usuario)
+            {
+                Console.WriteLine(usuario);
+                dBcontext.Usuarios.Add(usuario);
+                dBcontext.SaveChanges();
+                return usuario;
             }
         }
 
