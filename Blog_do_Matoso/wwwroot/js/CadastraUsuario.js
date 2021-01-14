@@ -66,7 +66,7 @@ function ValidaUsuarioNoBancoCadastro(objCadastro) {
 function SalvaUsuarioDB(objCadastro) {
     $.ajax({
         method: "POST",
-        url: "/home/SalvaUsuario",
+        url: "/home/CadastraUsuario",
         dataType: 'json',
         data: objCadastro,
         beforeSend: function (msg) {
