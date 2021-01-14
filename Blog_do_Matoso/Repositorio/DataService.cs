@@ -13,6 +13,8 @@ namespace Blog_do_Matoso
 
             private readonly DBcontext dBcontext;
 
+            public bool ValidacaoUsuarioLogin => throw new NotImplementedException();
+
             public DataService(DBcontext dBcontext)
             {
                 this.dBcontext=dBcontext;
@@ -25,18 +27,16 @@ namespace Blog_do_Matoso
                 return dBcontext.Depoimentos;
             }
 
-            public Depoimentos SalvaDados(Depoimentos depoimento)
+            public Depoimentos SalvaDepoimentoDB(Depoimentos depoimento)
             {
                 Console.WriteLine(depoimento);
                 dBcontext.Depoimentos.Add(depoimento);
                 dBcontext.SaveChanges();
                 return depoimento;
-
-
             }
 
 
-            public bool ValidacaoUsuario(string nome)
+            public bool ValidacaoUsuarioCadastro(string nome)
             {
                 var user = dBcontext.Usuarios.FirstOrDefault(x => x.Nome==nome);
 
@@ -46,12 +46,17 @@ namespace Blog_do_Matoso
                 }
                 return false;
             }
-            public Usuario SalvaUsuarioDB(Usuario usuario)
+            public Usuario CadastraUsuarioDB(Usuario usuario)
             {
                 Console.WriteLine(usuario);
                 dBcontext.Usuarios.Add(usuario);
                 dBcontext.SaveChanges();
                 return usuario;
+            }
+
+            bool IDataService.ValidacaoUsuarioLogin(string nome , string senha)
+            {
+                throw new NotImplementedException();
             }
         }
 
