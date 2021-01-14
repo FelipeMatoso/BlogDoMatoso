@@ -1,13 +1,24 @@
 Git
  "<tipo> <arquivo ou domino> <comentario>"
  
--func - novas funções  
--fix - para correção de bugs  
--edit - edição de nome de classe, função ou arquivo
--refactor - refatoração  
--config - configurações que não alteram  
 
-Ex: git commit -m "func - CadastroBasico - icluindo novo campo idade" Ex: git commit -m "refactor - App.vue - trocando ordem das opçoes"
+-func - novas funções  
+
+-fix => para correção de bugs  
+
+-edit => edição de nome de classe, função ou arquivo
+
+-refactor => refatoração  
+
+-config => configurações que não alteram  
+
+-remove  
+... -f => remoção de arquivo  
+... -c => classe   
+... -var => variavel     
+
+
+Ex: git commit -m -func - "CadastroBasico - icluindo novo campo idade" Ex: git commit -m "refactor - App.vue - trocando ordem das opçoes"
 
 Funções, propriedades e classes:
 C# - Primeira Maiuscula JS - Minuscula
