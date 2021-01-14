@@ -58,18 +58,19 @@ namespace Blog_do_Matoso.Controllers
                 Depoimento=depoimento ,
                 Data=data
             };
-            return dataService.SalvaDados(depoimentos);
+            return dataService.SalvaDepoimentoDB(depoimentos);
 
         }
 
         public bool ValidaUserLogin(string nome, string senha)
         {
-            return false;
+
+            return dataService.ValidacaoUsuarioLogin(nome , senha);
         }
 
         public bool ValidaUserCadastroDB(string nome)
         {
-            return dataService.ValidacaoUsuario(nome);
+            return dataService.ValidacaoUsuarioCadastro(nome);
         }
         public Usuario SalvaUsuario(string nome , string senha)
         {
@@ -78,7 +79,7 @@ namespace Blog_do_Matoso.Controllers
                 Nome=nome,
                 Senha=senha
             };
-            return dataService.SalvaUsuarioDB(usuario);
+            return dataService.CadastraUsuarioDB(usuario);
         }
 
     }
