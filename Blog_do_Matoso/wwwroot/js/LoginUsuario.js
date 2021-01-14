@@ -9,7 +9,6 @@
 
     if (ValidaUsuarioNoBancoLogin(objCadastro) == true) {
             console.log("entro validacao do banco")
-            //SalvaUsuarioDB(objCadastro);
         }
         else {
             console.log("saiu false")
@@ -25,8 +24,6 @@ function MontaObjetoDeUsuario(nome, senha) {
     };
     return obj;
 }
-
-
 
 function ValidaUsuarioNoBancoLogin(objCadastro) {
     let valida
@@ -46,21 +43,6 @@ function ValidaUsuarioNoBancoLogin(objCadastro) {
             return response;
         });
     return valida;
-}
-
-function SalvaUsuarioDB(objCadastro) {
-    $.ajax({
-        method: "POST",
-        url: "/home/SalvaUsuario",
-        dataType: 'json',
-        data: objCadastro,
-        beforeSend: function (msg) {
-            console.log(msg)
-        }
-    })
-        .done(function () {
-            alert("Usuário salvo  com sucesso!");
-        })
 }
 
 function ValidaCookie(aceitaCookie) {
