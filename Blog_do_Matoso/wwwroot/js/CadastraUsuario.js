@@ -4,21 +4,21 @@
     let senha = $("#cadastroSenha").val();
 
     let objCadastro;
-    console.log(objCadastro);
     if (ValidaFormsCadastro(nome.length, senha.length) == "validado") {
         objCadastro = MontaObjetoDeUsuario(nome, senha)
-        console.log(objCadastro);
 
-        if (ValidaUsuarioNoBancoCadastro(nome) == true) {
+        if (ValidaUsuarioNoBancoCadastro(objCadastro) == true) {
+            $("#usuarioExistente").attr("hidden", true);
             console.log("entro validacao do banco")
-                console.log(objCadastro);
-                SalvaUsuarioDB(objCadastro);
+            SalvaUsuarioDB(objCadastro);
+            limpaCamposCadastro()
+
+        }
+        else {
+            $("#usuarioExistente").attr("hidden", false);
         }
     }
     
-    limpaCamposCadastro()
-
-
 })
 
 function MontaObjetoDeUsuario(nome, senha) {
@@ -42,15 +42,14 @@ function ValidaFormsCadastro(nome, senha) {
     }
 }
 
-function ValidaUsuarioNoBancoCadastro(nome) {
+function ValidaUsuarioNoBancoCadastro(objCadastro) {
     let valida
-    console.log(nome);
 
     $.ajax({
         method: "GET",
         url: "/home/ValidaUserCadastroDB",
         dataType: 'json',
-        data: nome,
+        data: objCadastro,
         async:false,
         beforeSend: function () {
             console.log("Validando Usuario...");
@@ -75,7 +74,7 @@ function SalvaUsuarioDB(objCadastro) {
         }
     })
         .done(function () {
-            alert("Usuário salvo  com sucesso!");
+            alert("Usuário "+objCadastro.nome +" salvo com sucesso!");
         })
 }
 
@@ -91,6 +90,6 @@ function CookieMaker(objCadastro) {
 }
 
 function limpaCamposCadastro(){
-    $("#nome").val('');
-    $("#senha").val('');
+    $("#cadastroNome").val('');
+    $("#cadastroSenha").val('');
 }
