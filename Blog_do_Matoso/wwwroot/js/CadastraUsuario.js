@@ -1,14 +1,15 @@
 ﻿$("#formsCadastro").submit(function (e) {
     e.preventDefault();
-    console.log("entro");
     let nome = $("#cadastroNome").val();
     let senha = $("#cadastroSenha").val();
 
     let objCadastro;
-    
+    console.log(objCadastro);
     if (ValidaFormsCadastro(nome.length, senha.length) == "validado") {
         objCadastro = MontaObjetoDeUsuario(nome, senha)
-        if (ValidaUsuarioNoBanco(objCadastro) == true) {
+        console.log(objCadastro);
+
+        if (ValidaUsuarioNoBancoCadastro(nome) == true) {
             console.log("entro validacao do banco")
                 console.log(objCadastro);
                 SalvaUsuarioDB(objCadastro);
@@ -41,13 +42,15 @@ function ValidaFormsCadastro(nome, senha) {
     }
 }
 
-function ValidaUsuarioNoBanco(objCadastro) {
+function ValidaUsuarioNoBancoCadastro(nome) {
     let valida
+    console.log(nome);
+
     $.ajax({
         method: "GET",
-        url: "/home/validaUserCadastroDB",
+        url: "/home/ValidaUserCadastroDB",
         dataType: 'json',
-        data: objCadastro,
+        data: nome,
         async:false,
         beforeSend: function () {
             console.log("Validando Usuario...");
