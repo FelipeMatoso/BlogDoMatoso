@@ -1,17 +1,18 @@
-﻿$("#formsLogin").submit(function (e) {
+﻿
+$("#formsLogin").submit(function (e) {
     e.preventDefault();
-    let nome = $("#loginUsuario").val();
-    let senha = $("#loginSenha").val();
+    let nomeLogin = $("#loginUsuario").val();
+    let senhaLogin = $("#loginSenha").val();
     let cookie = $("#loginCheckbox");
 
-    let objCadastro = MontaObjetoDeUsuario(nome, senha);
+    let objCadastro = MontaObjetoDeUsuario(nomeLogin, senhaLogin);
 
     if (ValidaUsuarioNoBancoLogin(objCadastro) == true) {
-            console.log("entro validacao do banco")
-        }
-        else {
-            console.log("saiu false")
-        }
+        console.log("entro validacao do banco")
+    }
+    else {
+        console.log("retornou para main falso")
+    }
 
     limpaCamposCadastro()
 })
@@ -21,31 +22,35 @@ function MontaObjetoDeUsuario(nome, senha) {
         nome: nome,
         senha: senha,
     };
-    return obj;
+
+return obj;
 }
 
 function ValidaUsuarioNoBancoLogin(objCadastro) {
     let valida;
     console.log("entro validacao")
-    console.log(objCadastro)
     $.ajax({
         method: "GET",
         url: "/home/ValidaUserLogin",
-        dataType: 'json',
+       headers:'json',
         data: objCadastro,
-        async: false,
+        async:false,
         beforeSend: function () {
             console.log("Validando Usuario...");
+        },
+        success: function (response) {
+            console.log(response + " retornado de ajax ValidaUserLogin");
+            valida = response;
+        },
+        error: function (req, status, err) {
+            console.log("deu error")
+            console.log(req)
+            console.log(status)
+            console.log(err)
+
+
         }
     })
-        .fail(function (response) {
-            console.log("erro" + response)
-        })
-        .done(function (response) {
-            console.log(response +" foda");
-            valida = response;
-            return response;
-        });
     return valida;
 }
 
@@ -62,5 +67,5 @@ function CookieMaker(objCadastro) {
 
 function limpaCamposCadastro() {
     $("#loginUsuario").val('');
-     $("#loginSenha").val('');
+    $("#loginSenha").val('');
 }
