@@ -8,10 +8,10 @@ $("#formsLogin").submit(function (e) {
     let objCadastro = MontaObjetoDeUsuario(nomeLogin, senhaLogin);
 
     if (ValidaUsuarioNoBancoLogin(objCadastro) == true) {
-        console.log("entro validacao do banco")
+        console.log("entro validacao do banco e retornou true")
     }
     else {
-        console.log("retornou para main falso")
+        console.log("validou e nao tem Usuario existente")
     }
 
     limpaCamposCadastro()
@@ -39,7 +39,6 @@ function ValidaUsuarioNoBancoLogin(objCadastro) {
             console.log("Validando Usuario...");
         },
         success: function (response) {
-            console.log(response + " retornado de ajax ValidaUserLogin");
             valida = response;
         },
         error: function (req, status, err) {
