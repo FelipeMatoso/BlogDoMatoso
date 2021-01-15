@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="~/css/main.css" />
     <link rel="stylesheet" href="~/css/index/index.css" />
     <link rel="stylesheet" href="~/css/texting/texting.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <asp: ScriptManager runat="server" ID="sm1" EnablePageMethods="true" />
 
 
@@ -17,14 +19,13 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container espacamento">
+        <nav class=" navbar navbar-expand-sm navbar-expand-lg navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
                 <a class="navbar-brand cabecalho">Blog do Matoso</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <div id="ListaLinksCabecalho" class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -38,17 +39,31 @@
 
                     </ul>
                 </div>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <div class="login_box">
-                        <div class="login_box_login">
-                            <button class="nav-link text-dark botao-login botao" type="button" data-toggle="modal" data-target="#ModalLogin">Login</button>
+
+                <div id="CaixaAcessoUsuario" class="navbar-collapse  text-dark collapse d-sm-inline-flex flex-sm-row">
+                    <div id="CaixaUserLogado" class="btn-group" role="group" aria-label="Botao">
+                        <button type="button" class="btn btn-light">NomeDoUsuario</button>
+
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="#">Meu perfil</a>
+                                <a class="dropdown-item" href="#">Meu posts</a>
+                                <a class="dropdown-item" href="#">Sair <i class="tiny material-icons">exit_to_app</i></a>
+                            </div>
                         </div>
-                        <div class="login_box_cadastro">
-                            <button class="nav-link text-dark botao-login botao" type="button" data-toggle="modal" data-target="#ModalCadastros">Cadastro</button>
+
+                        <div  id="CaixaLogin" class="login_box">
+                            <div class="login_box_login">
+                                <button class="nav-link text-dark botao-login botao" type="button" data-toggle="modal" data-target="#ModalLogin">Login</button>
+                            </div>
+                            <div class="login_box_cadastro">
+                                <button class="nav-link text-dark botao-login botao" type="button" data-toggle="modal" data-target="#ModalCadastros">Cadastro</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </nav>
     </header>
 
@@ -112,7 +127,7 @@
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Usuario</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="cadastroNome" placeholder="nome de usuário">
-                                <span  hidden class="alert-danger" id="usuarioExistente"> Usuário já <b>existente</b> </span>
+                                <span hidden class="alert-danger" id="usuarioExistente"> Usuário já <b>existente</b> </span>
                                 <div class="collapse" id="collapseExample">
                                     <div class="card card-body">
                                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
@@ -150,9 +165,10 @@
 
 
 
-    <footer class="border-top footer text-muted">
-        <div class="container ">
-            &copy; 2020 - Blog do Matoso - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="border-top footer text-muted" style="margin-right:20%">
+        <div class="text-center align-content-md-center" >
+            <p>2020 - Blog do Matoso</p>
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy  </a>
         </div>
     </footer>
 
@@ -166,7 +182,7 @@
     <script src="~/js/DBRequisitaDepoimentosAntigos.js" asp-append-version="true"></script>
     <script src="~/js/PostaConteudo.js" asp-append-version="true"></script>
     <script src="~/js/CadastraUsuario.js" asp-append-version="true"></script>
-    <script src="~/js/LoginUsuario.js" asp-append-version="true" ></script>
+    <script src="~/js/LoginUsuario.js" asp-append-version="true"></script>
     @RenderSection("Scripts" , required: false)
 </body>
 </html>
