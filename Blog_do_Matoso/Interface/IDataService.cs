@@ -7,8 +7,7 @@ namespace Blog_do_Matoso
     {
         object IniciaDB();
         Depoimentos SalvaDepoimentoDB(Depoimentos depoimento);
-        bool ValidacaoUsuarioCadastro(string nome);
+        bool CadastroValidausuarioExistenteDB(string nome);
         Usuario CadastraUsuarioDB(Usuario usuario);
-        bool ValidacaoUsuarioLogin(string nome , string senha);
     }
 }

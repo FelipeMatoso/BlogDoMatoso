@@ -1,7 +1,5 @@
-﻿using Blog_do_Matoso.Business;
-using Blog_do_Matoso.Models;
+﻿using Blog_do_Matoso.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Blog_do_Matoso
@@ -13,7 +11,6 @@ namespace Blog_do_Matoso
 
             private readonly DBcontext dBcontext;
 
-            public bool ValidacaoUsuarioLogin => throw new NotImplementedException();
 
             public DataService(DBcontext dBcontext)
             {
@@ -36,7 +33,7 @@ namespace Blog_do_Matoso
             }
 
 
-            public bool ValidacaoUsuarioCadastro(string nome)
+            public bool CadastroValidausuarioExistenteDB(string nome)
             {
                 var user = dBcontext.Usuarios.FirstOrDefault(x => x.Nome==nome);
 
@@ -53,6 +50,8 @@ namespace Blog_do_Matoso
                 dBcontext.SaveChanges();
                 return usuario;
             }
+
+
 
 
         }

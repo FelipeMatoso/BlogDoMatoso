@@ -17,11 +17,14 @@ namespace Blog_do_Matoso.Business
             this.dBcontext=dBcontext;
         }
 
-        public bool ValidacaoUsuarioLogin(string nome , string senha)
+        public bool LoginVerificaExistente(string nome , string senha)
         {
-
-            //valida se o login é login aceito
-            return true;
+            var user = true;
+            //var user = dBcontext.Usuarios.FirstOrDefault;
+            if (true)
+            {
+                return user;
+            }
         }
     }
 }

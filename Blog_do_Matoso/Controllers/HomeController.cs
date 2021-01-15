@@ -62,17 +62,20 @@ namespace Blog_do_Matoso.Controllers
 
         }
 
-        public string ValidaUserLogin(string nome, string senha)
+        public bool ValidaUserLogin(string nome, string senha)
         {
 
             return validacaoLoginUsuario.ValidacaoUsuarioLogin(nome , senha);
         }
-
+        public string AcessaLogin(string nome, string senha)
+        {
+                return "AcessaLoginAQui";   
+        }
 
 
         public bool ValidaUserCadastroDB(string nome)
         {
-            return dataService.ValidacaoUsuarioCadastro(nome);
+            return dataService.CadastroValidausuarioExistenteDB(nome);
         }
         public Usuario CadastraUsuario(string nome , string senha)
         {
