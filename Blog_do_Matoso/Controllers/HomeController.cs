@@ -65,11 +65,11 @@ namespace Blog_do_Matoso.Controllers
         public bool ValidaUserLogin(string nome, string senha)
         {
 
-            return validacaoLoginUsuario.ValidacaoUsuarioLogin(nome , senha);
+            return validacaoLoginUsuario.LoginVerificaExistente(nome , senha);
         }
         public string AcessaLogin(string nome, string senha)
         {
-                return "AcessaLoginAQui";   
+                return "Acessa Login Aqui";   
         }
 
 

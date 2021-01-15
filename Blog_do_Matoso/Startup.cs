@@ -32,7 +32,6 @@ namespace Blog_do_Matoso
             );
 
             services.AddScoped<IDataService , DataService>();
-            services.AddScoped<IValidaDepoimento , ValidaDepoimento>();
             services.AddScoped<ILoginUsuario , LoginUsuario>();
         }
 
