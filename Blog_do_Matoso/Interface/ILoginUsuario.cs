@@ -8,6 +8,6 @@ namespace Blog_do_Matoso.Interface
 {
     public interface ILoginUsuario
     {
-        string ValidacaoUsuarioLogin(string nome , string senha);
+        bool ValidacaoUsuarioLogin(string nome , string senha);
     }
 }
