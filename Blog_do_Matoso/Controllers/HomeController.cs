@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Blog_do_Matoso.Interface;
-
+using System.Security.Cryptography;
 
 namespace Blog_do_Matoso.Controllers
 {
@@ -11,13 +11,13 @@ namespace Blog_do_Matoso.Controllers
     public class HomeController : Controller
     {
         private readonly IDataService dataService;
-        private readonly ILoginUsuario validacaoLoginUsuario;
+        private readonly ILoginUsuario LoginUsuario;
 
 
         public HomeController(IDataService dataService , ILoginUsuario validacaoLoginUsuario)
         {
             this.dataService=dataService;
-            this.validacaoLoginUsuario=validacaoLoginUsuario;
+            this.LoginUsuario=validacaoLoginUsuario;
         }
 
         public IActionResult Index()
@@ -64,22 +64,34 @@ namespace Blog_do_Matoso.Controllers
 
         public bool ValidaUserLogin(string nome, string senha)
         {
-
-            return validacaoLoginUsuario.LoginVerificaExistente(nome , senha);
+            Usuarios usuario = new Usuarios
+            {
+                Nome=nome ,
+                Senha=senha
+            };
+            return LoginUsuario.LoginVerificaExistente(usuario);
         }
-        public string AcessaLogin(string nome, string senha)
+
+        public string MudaSenhaUsuario(string nome, string senha) //nao utilizada
         {
-                return "Acessa Login Aqui";   
+            Usuarios usuario = new Usuarios
+            {
+                Nome=nome ,
+                Senha=senha
+            };
+
+            return dataService.AlteraSenhaUsuario(usuario , "banana");
+            
         }
 
 
         public bool ValidaUserCadastroDB(string nome)
         {
-            return dataService.CadastroValidausuarioExistenteDB(nome);
+            return dataService.CadastroValidaUsuarioExistenteDB(nome);
         }
-        public Usuario CadastraUsuario(string nome , string senha)
+        public Usuarios CadastraUsuario(string nome , string senha)
         {
-            Usuario usuario = new Usuario
+            Usuarios usuario = new Usuarios
             {
                 Nome=nome,
                 Senha=senha

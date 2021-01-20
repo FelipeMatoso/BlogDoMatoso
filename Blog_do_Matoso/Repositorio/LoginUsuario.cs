@@ -10,21 +10,21 @@ namespace Blog_do_Matoso.Business
 {
     public class LoginUsuario : ILoginUsuario
     {
-        DBcontext dBcontext;
+         DBcontext dBcontext;
 
         public LoginUsuario(DBcontext dBcontext)
         {
             this.dBcontext=dBcontext;
         }
 
-        public bool LoginVerificaExistente(string nome , string senha)
+        public bool LoginVerificaExistente(Usuarios usuario)
         {
-            var user = true;
-            //var user = dBcontext.Usuarios.FirstOrDefault;
-            if (true)
-            {
-                return user;
-            }
+            var usuarioDB = dBcontext.Usuarios.FirstOrDefault(user => user.Senha==usuario.Senha && user.Nome==usuario.Nome );
+
+            if (usuarioDB!=null)
+                return true;
+            else
+                return false;
         }
     }
 }

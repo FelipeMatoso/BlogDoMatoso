@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="~/css/texting/texting.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <asp: ScriptManager runat="server" ID="sm1" EnablePageMethods="true" />
 
 
 
@@ -20,54 +19,53 @@
 <body>
     <header>
         <nav class=" navbar navbar-expand-sm navbar-expand-lg navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                <a class="navbar-brand cabecalho">Blog do Matoso</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div id="ListaLinksCabecalho" class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Texting">Escreva algo!</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Sobre">Sobre Matoso</a>
-                        </li>
+            <a class="navbar-brand cabecalho">Blog do Matoso</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="ListaLinksCabecalho" class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Texting">Depoimentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Sobre">Sobre Matoso</a>
+                    </li>
 
-                    </ul>
-                </div>
+                </ul>
+            </div>
 
-                <div id="CaixaAcessoUsuario" class="navbar-collapse  text-dark collapse d-sm-inline-flex flex-sm-row">
-                    <div id="CaixaUserLogado" class="btn-group" role="group" aria-label="Botao">
-                        <button type="button" class="btn btn-light">NomeDoUsuario</button>
+            <div id="CaixaAcessoUsuario" class="navbar-collapse  text-dark collapse d-sm-inline-flex flex-sm-row">
+                <div id="CaixaUserLogado" class="btn-group" role="group" aria-label="Botao">
+                    <button id="IconeUsuario" type="button" class="btn btn-light"></button>
 
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                <a class="dropdown-item" href="#">Meu perfil</a>
-                                <a class="dropdown-item" href="#">Meu posts</a>
-                                <a class="dropdown-item" href="#">Sair <i class="tiny material-icons">exit_to_app</i></a>
-                            </div>
-                        </div>
-
-                        <div  id="CaixaLogin" class="login_box">
-                            <div class="login_box_login">
-                                <button class="nav-link text-dark botao-login botao" type="button" data-toggle="modal" data-target="#ModalLogin">Login</button>
-                            </div>
-                            <div class="login_box_cadastro">
-                                <button class="nav-link text-dark botao-login botao" type="button" data-toggle="modal" data-target="#ModalCadastros">Cadastro</button>
-                            </div>
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <button id="MeuPerfil-btn" class="dropdown-item" type="button" data-toggle="modal" data-target="#ModalMeuPerfil">Meu perfil</button>
+                            <button id="LogOut-btn" class="dropdown-item" type="button">Sair <i class="Tiny material-icons">exit_to_app</i></button>
                         </div>
                     </div>
                 </div>
+
+                <div id="CaixaLogin" class="login_box">
+                    <div class="login_box_login">
+                        <button class="nav-link text-dark botao-login botao" type="button" data-toggle="modal" data-target="#ModalLogin">Login</button>
+                    </div>
+                    <div class="login_box_cadastro">
+                        <button class="nav-link text-dark botao-login botao" type="button" data-toggle="modal" data-target="#ModalCadastros">Cadastro</button>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <div class="modal fade" id="ModalLogin" tabindex="-1" role="dialog" aria-labelledby="ModalLoginTitle" aria-hidden="true">
+    <div id="ModalLogin" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalLoginTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -92,16 +90,6 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="loginCheckbox">
-                                    <label class="form-check-label" for="gridCheck1">
-                                        Lembrar meu login
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary"> Entrar!</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
@@ -112,7 +100,37 @@
         </div>
     </div>
 
-    <div class="modal fade" id="ModalCadastros" tabindex="-1" role="dialog" aria-labelledby="ModalCadastrosTitle" aria-hidden="true">
+    <div id="ModalMeuPerfil" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalLoginTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="MeuPerfilNome">Nome do dono do perfil</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Nova Senha</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="NovaSenha" placeholder="nova senha">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <button type="button"  class="btn btn-info" >Trocar senha</button>
+                            <button type="button" class="btn btn-danger"> Apagar conta</button>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary"> Entrar!</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ModalCadastros" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalCadastrosTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -166,7 +184,7 @@
 
 
     <footer class="border-top footer text-muted" style="margin-right:20%">
-        <div class="text-center align-content-md-center" >
+        <div class="text-center align-content-md-center">
             <p>2020 - Blog do Matoso</p>
             <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy  </a>
         </div>
@@ -177,6 +195,8 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js">SubmitDica</script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/AutorizaComponentesLogin.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/SubmitTexto.js" asp-append-version="true"></script>
     <script src="~/js/DBRequisitaDepoimentosAntigos.js" asp-append-version="true"></script>

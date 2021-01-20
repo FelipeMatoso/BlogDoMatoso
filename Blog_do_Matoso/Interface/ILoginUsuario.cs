@@ -8,6 +8,6 @@ namespace Blog_do_Matoso.Interface
 {
     public interface ILoginUsuario
     {
-        bool LoginVerificaExistente(string nome , string senha);
+        bool LoginVerificaExistente(Usuarios usuario);
     }
 }
