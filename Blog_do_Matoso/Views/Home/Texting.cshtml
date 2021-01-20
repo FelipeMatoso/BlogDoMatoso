@@ -1,24 +1,22 @@
 ﻿
 @{
-    ViewData["Title"]="Me ajude a melhorar, deixe um depoimento!";
+    ViewData["Title"]="Depoimentos de outros colaboradores";
 }
 <div class="main">
 
 
-    <h1>@ViewData["Title"]</h1>
-
-    <div class="caixa-de-depoimento">
+    <div id="BoxInsereDepoimento" class="caixa-de-depoimento">
+        <h3>Ajude a comunidade com alguma depoimento!</h3>
         <form method="post">
-            <label for="nome-feedback">Insira seu primeiro nome, participe da contagem de colaboradores!</label>
-            <input id="nome-feedback" placeholder="Primeiro nome apenas" />
-
-            <div class="pega-depoimento">
-                <textarea id="depoimento" rows="5" cols="6" class="area_texto "></textarea>
-
-                <input type="button" class="botao" id="botaoSubmit" value="Ajudar!">
+            <div  class="pega-depoimento">
+                <textarea id="depoimento" rows="5" cols="6" class="area_texto " placeholder="Escreva aqui algum conhecimento que você acredita ser interessante..."></textarea>
+                <input type="button" class="botao btn-outline-success" id="botaoSubmit" value="Ajudar!">
             </div>
         </form>
     </div>
+
+
+    <h1>@ViewData["Title"]</h1>
 
     <div class="grid-posts">
         <div class="grid-depoimentos">
