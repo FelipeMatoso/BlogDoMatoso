@@ -18,7 +18,7 @@
             $("#usuarioExistente").attr("hidden", false);
         }
     }
-    
+
 })
 
 function MontaObjetoDeUsuario(nome, senha) {
@@ -30,14 +30,23 @@ function MontaObjetoDeUsuario(nome, senha) {
 }
 
 function ValidaFormsCadastro(nome, senha) {
-    if (nome >= 4 && senha >= 2) {
+    if (nome >= 4 && nome <= 30 && senha >= 2 && senha <= 16) {
         return "validado";
     }
     else {
-        if (nome< 4) {
+        if (nome < 4) {
             alert("Nome com " + nome + ", sendo minimo 4");
         }
-        alert("Senha com " + senha + ", sendo minimo 2");
+        else {
+            alert("Nome excedeu o máximo de 30 caracteres");
+        }
+        if (senha < 2) {
+            alert("Senha com " + nome + ", sendo minimo 4");
+        }
+        else {
+            alert("Senha excedeu excedeu o máximo de 16 caracteres");
+
+        }
         return 0;
     }
 }
@@ -50,7 +59,7 @@ function ValidaUsuarioNoBancoCadastro(objCadastro) {
         url: "/home/ValidaUserCadastroDB",
         dataType: 'json',
         data: objCadastro,
-        async:false,
+        async: false,
         beforeSend: function () {
             console.log("Validando Usuario...");
         }
@@ -74,22 +83,11 @@ function SalvaUsuarioDB(objCadastro) {
         }
     })
         .done(function () {
-            alert("Usuário "+objCadastro.nome +" salvo com sucesso!");
+            alert("Usuário " + objCadastro.nome + " salvo com sucesso!");
         })
 }
 
-function ValidaCookie(aceitaCookie) {
-    if (aceitaCookie.is(':checked') == true) {
-        return "aceito";
-    }
-}
-function CookieMaker(objCadastro) {
-    localStorage.setItem('nomeUsuario', objCadastro.nome)
-    localStorage.setItem('senhaUsuario', objCadastro.senha)
-    console.log("biscoito feito");
-}
-
-function limpaCamposCadastro(){
+function limpaCamposCadastro() {
     $("#cadastroNome").val('');
     $("#cadastroSenha").val('');
 }
