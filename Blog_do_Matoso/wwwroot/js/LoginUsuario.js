@@ -3,18 +3,18 @@ $("#formsLogin").submit(function (e) {
     e.preventDefault();
     let nomeLogin = $("#loginUsuario").val();
     let senhaLogin = $("#loginSenha").val();
-    let cookie = $("#loginCheckbox");
 
     let objCadastro = MontaObjetoDeUsuario(nomeLogin, senhaLogin);
-
     if (ValidaUsuarioNoBancoLogin(objCadastro) == true) {
         console.log("entro validacao do banco e retornou true")
+        localStorage.setItem("nomeUsuario", objCadastro.nome)
+        document.location.reload(true);
     }
     else {
         console.log("validou e nao tem Usuario existente")
+        limpaCamposCadastro()
     }
 
-    limpaCamposCadastro()
 })
 
 function MontaObjetoDeUsuario(nome, senha) {
@@ -23,7 +23,7 @@ function MontaObjetoDeUsuario(nome, senha) {
         senha: senha,
     };
 
-return obj;
+    return obj;
 }
 
 function ValidaUsuarioNoBancoLogin(objCadastro) {
@@ -32,9 +32,9 @@ function ValidaUsuarioNoBancoLogin(objCadastro) {
     $.ajax({
         method: "GET",
         url: "/home/ValidaUserLogin",
-       headers:'json',
+        headers: 'json',
         data: objCadastro,
-        async:false,
+        async: false,
         beforeSend: function () {
             console.log("Validando Usuario...");
         },
@@ -53,18 +53,14 @@ function ValidaUsuarioNoBancoLogin(objCadastro) {
     return valida;
 }
 
-function ValidaCookie(aceitaCookie) {
-    if (aceitaCookie.is(':checked') == true) {
-        return "aceito";
-    }
-}
-function CookieMaker(objCadastro) {
-    localStorage.setItem('nomeUsuario', objCadastro.nome)
-    localStorage.setItem('senhaUsuario', objCadastro.senha)
-    console.log("biscoito feito");
-}
-
 function limpaCamposCadastro() {
     $("#loginUsuario").val('');
     $("#loginSenha").val('');
 }
+
+$("#LogOut-btn").click(function () {
+    localStorage.removeItem("nomeUsuario");
+    console.log("clicou botao");
+    checaLogin();
+    document.location.reload(true);
+})
