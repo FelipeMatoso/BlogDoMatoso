@@ -10,6 +10,7 @@ function Ajax1() {
     })
         .fail(function (error) {
             console.log("falhou no request de depoiemntos antigos");
+            console.log(error)
         })
         .done(function (depoimentos) {
             console.log(depoimentos)

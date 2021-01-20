@@ -9,7 +9,7 @@ namespace Blog_do_Matoso
         public class DataService : IDataService
         {
 
-            private readonly DBcontext dBcontext;
+            readonly DBcontext dBcontext;
 
 
             public DataService(DBcontext dBcontext)
@@ -21,6 +21,7 @@ namespace Blog_do_Matoso
 
             public object IniciaDB()
             {
+                Console.WriteLine(dBcontext.Depoimentos);
                 return dBcontext.Depoimentos;
             }
 
@@ -33,7 +34,7 @@ namespace Blog_do_Matoso
             }
 
 
-            public bool CadastroValidausuarioExistenteDB(string nome)
+            public bool CadastroValidaUsuarioExistenteDB(string nome)
             {
                 var user = dBcontext.Usuarios.FirstOrDefault(x => x.Nome==nome);
 
@@ -43,12 +44,37 @@ namespace Blog_do_Matoso
                 }
                 return false;
             }
-            public Usuario CadastraUsuarioDB(Usuario usuario)
+
+            public Usuarios CadastraUsuarioDB(Usuarios usuario)
             {
                 Console.WriteLine(usuario);
                 dBcontext.Usuarios.Add(usuario);
                 dBcontext.SaveChanges();
                 return usuario;
+            }
+
+            public Usuarios ApagaUsuarioDB(Usuarios usuario)
+            {
+                Usuarios usuarioDB = dBcontext.Usuarios.Find(usuario);
+                dBcontext.Usuarios.Remove(usuarioDB);
+                //implementar depois a limpeza dos depoimentos
+                dBcontext.SaveChanges();
+                return usuario;
+            }
+
+            public string AlteraSenhaUsuario(Usuarios usuario , string novaSenha)
+            {
+                var usuarioDB = dBcontext.Usuarios.FirstOrDefault(user => user.Nome==usuario.Nome && user.Senha==usuario.Senha);
+
+                if (usuarioDB!=null)
+                {
+                    usuarioDB.Senha=novaSenha;
+                    dBcontext.Usuarios.Update(usuarioDB);
+                    //dBcontext.SaveChanges();
+                    return "Senha alterada com sucesso";
+                }
+                else
+                    return  "Erro ao trocar senha";
             }
 
 
