@@ -25,3 +25,9 @@ docs/
 *.cache
 *.pdb
 *.cache
+*.cache
+*.props
+*.pdb
+*.v2
+*.props
+*.cache
