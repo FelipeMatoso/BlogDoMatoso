@@ -1,4 +1,5 @@
-﻿$("#botaoSubmit").on("click", function (e) {
+﻿
+$("#botaoSubmit").on("click", function (e) {
     event.preventDefault();
     SubmitDica();
 
@@ -12,27 +13,30 @@ function SubmitDica() {
     offset = JSON.stringify(offset).split("T")
     offset[1] = offset[0][9] + offset[0][10] + '/' + offset[0][6] + offset[0][7] + '/' + offset[0][1] + offset[0][2] + offset[0][3] + offset[0][4]
 
-    let colaboradorNome = $("#nome-feedback").val();
-    let colaboradorTexto = $("#depoimento").val();
+    let colaboradorNome = localStorage.getItem("nomeUsuario");
+    JSON.stringify(colaboradorNome);
 
+    let colaboradorTexto = $("#depoimento").val();
     let Nome = capitalizeFirstLetter(colaboradorNome)
 
-    if (ConfereConteudo(colaboradorNome) == true) {
+    if (colaboradorTexto.length <5) {
+        console.log("Você não escreveu nada")
+    }
+    else {
         let pessoa = {
             nome: Nome,
             depoimento: colaboradorTexto,
             data: offset[1]
         }
         alert("Obrigado " + colaboradorNome + " por ajudar! Agredeço muito pela dica!")
+        console.log(pessoa)
 
-        limpaCampos()
         postaConteudo(pessoa);
         SalvaDepoimentoDB(pessoa);
     }
-    else {
-        alert("Nome " + colaboradorNome + " inváido")
-        limpaCampos()
-    }
+
+
+    limpaCampos()
 }
 
 
@@ -40,14 +44,6 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function ConfereConteudo(nome) {
-    var aprovado = false
-
-    if (nome == "Plinio" || nome == "Matoso" || nome == "Felipe" || nome == "Ademir" || nome == "Falavinha" || nome == "Evandro") {
-        aprovado = true
-    }
-    return aprovado;
-}
 
 
 function SalvaDepoimentoDB(objeto) {
@@ -66,7 +62,6 @@ function SalvaDepoimentoDB(objeto) {
 }
 
 function limpaCampos() {
-    $("#nome-feedback").val("");
-    $("#nome-feedback").focus();
+    $("#depoimento").focus();
     $("#depoimento").val("");
 }
