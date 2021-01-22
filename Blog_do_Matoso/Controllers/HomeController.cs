@@ -24,7 +24,7 @@ namespace Blog_do_Matoso.Controllers
         {
             return View();
         }
-        
+
         public IActionResult Privacy()
         {
             return View();
@@ -33,6 +33,11 @@ namespace Blog_do_Matoso.Controllers
         {
             return View();
         }
+        public IActionResult PaginaUsuario()
+        {
+            return View();
+        }
+
         public IActionResult Sobre()
         {
             return View();
@@ -50,11 +55,14 @@ namespace Blog_do_Matoso.Controllers
         }
 
 
-        public Depoimentos SalvaDepoimentoBD(string nome, string depoimento,string data)
+
+
+        public Depoimentos SalvaDepoimentoBD(string nome , int usuarioId, string depoimento , string data)
         {
             Depoimentos depoimentos = new Depoimentos
             {
                 Nome=nome ,
+                IdUsuario = usuarioId,
                 Depoimento=depoimento ,
                 Data=data
             };
@@ -62,7 +70,7 @@ namespace Blog_do_Matoso.Controllers
 
         }
 
-        public bool ValidaUserLogin(string nome, string senha)
+        public object ValidaUserLogin(string nome , string senha)
         {
             Usuarios usuario = new Usuarios
             {
@@ -72,16 +80,26 @@ namespace Blog_do_Matoso.Controllers
             return LoginUsuario.LoginVerificaExistente(usuario);
         }
 
-        public string MudaSenhaUsuario(string nome, string senha) //nao utilizada
+
+        public string MudaSenhaUsuario(string nome , int id , string novaSenha) 
         {
             Usuarios usuario = new Usuarios
             {
                 Nome=nome ,
-                Senha=senha
+                Id=id
             };
 
-            return dataService.AlteraSenhaUsuario(usuario , "banana");
-            
+            return dataService.AlteraSenhaUsuario(usuario , novaSenha);
+        }
+
+        public string ApagaUsuario (string nome, string senha)
+        {
+            Usuarios usuario = new Usuarios
+            {
+                Nome=nome ,
+                Senha=senha,
+            };
+            return dataService.ApagaUsuarioDB(usuario);
         }
 
 
@@ -89,7 +107,8 @@ namespace Blog_do_Matoso.Controllers
         {
             return dataService.CadastroValidaUsuarioExistenteDB(nome);
         }
-        public Usuarios CadastraUsuario(string nome , string senha)
+
+        public string CadastraUsuario(string nome , string senha)
         {
             Usuarios usuario = new Usuarios
             {

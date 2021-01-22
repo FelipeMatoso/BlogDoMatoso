@@ -31,3 +31,8 @@ docs/
 *.v2
 *.props
 *.cache
+.vs/Blog_do_Matoso/DesignTimeBuild/.dtbcache.v2
+.vs/Blog_do_Matoso/v16/.suo
+Blog_do_Matoso/bin/Debug/netcoreapp3.1/Blog_do_Matoso.pdb
+Blog_do_Matoso/bin/Debug/netcoreapp3.1/Blog_do_Matoso.Views.pdb
+Blog_do_Matoso/Blog_do_Matoso.csproj
