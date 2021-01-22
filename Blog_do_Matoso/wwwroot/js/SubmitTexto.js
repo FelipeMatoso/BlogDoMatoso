@@ -14,10 +14,11 @@ function SubmitDica() {
     offset[1] = offset[0][9] + offset[0][10] + '/' + offset[0][6] + offset[0][7] + '/' + offset[0][1] + offset[0][2] + offset[0][3] + offset[0][4]
 
     let colaboradorNome = localStorage.getItem("nomeUsuario");
-    JSON.stringify(colaboradorNome);
+    let colaboradorId = localStorage.getItem("idUsuario");
+
+    let Nome = capitalizeFirstLetter(colaboradorNome)
 
     let colaboradorTexto = $("#depoimento").val();
-    let Nome = capitalizeFirstLetter(colaboradorNome)
 
     if (colaboradorTexto.length <5) {
         console.log("Você não escreveu nada")
@@ -25,6 +26,7 @@ function SubmitDica() {
     else {
         let pessoa = {
             nome: Nome,
+            usuarioId: colaboradorId,
             depoimento: colaboradorTexto,
             data: offset[1]
         }
@@ -39,7 +41,6 @@ function SubmitDica() {
     limpaCampos()
 }
 
-
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -53,11 +54,11 @@ function SalvaDepoimentoDB(objeto) {
         dataType: 'json',
         data: objeto,
         beforeSend: function (msg) {
-            console.log(msg)
+            console.log("Enviando depoimento..")
         }
     })
         .done(function (depoimentos) {
-
+            console.log("Enviou depoimento")
         });
 }
 

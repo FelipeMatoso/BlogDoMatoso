@@ -1,5 +1,5 @@
 ﻿function postaConteudo(objeto) {
-    corpoDepoimentos = $(".grid-posts");
+    corpoDepoimentos = $("#grid-posts");
 
     let divMae = $("<div>");
     divMae.addClass("grid-depoimentos");
