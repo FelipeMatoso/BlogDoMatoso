@@ -1,6 +1,7 @@
 ﻿$("#formsCadastro").submit(function (e) {
     e.preventDefault();
-    let nome = $("#cadastroNome").val();
+    let nome1 = $("#cadastroNome").val();
+    let nome = capitalizeFirstLetter(nome1); 
     let senha = $("#cadastroSenha").val();
 
     let objCadastro;
@@ -9,10 +10,9 @@
 
         if (ValidaUsuarioNoBancoCadastro(objCadastro) == true) {
             $("#usuarioExistente").attr("hidden", true);
-            console.log("entro validacao do banco")
+            limpaCamposCadastro();
             SalvaUsuarioDB(objCadastro);
-            limpaCamposCadastro()
-
+            document.location.reload(true);
         }
         else {
             $("#usuarioExistente").attr("hidden", false);
@@ -20,6 +20,10 @@
     }
 
 })
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 function MontaObjetoDeUsuario(nome, senha) {
     let obj = {
@@ -65,7 +69,6 @@ function ValidaUsuarioNoBancoCadastro(objCadastro) {
         }
     })
         .done(function (response) {
-            console.log(response);
             valida = response;
             return response;
         });
@@ -77,17 +80,22 @@ function SalvaUsuarioDB(objCadastro) {
         method: "POST",
         url: "/home/CadastraUsuario",
         dataType: 'json',
+        async: false,
         data: objCadastro,
         beforeSend: function (msg) {
-            console.log(msg)
+            console.log("Salvando em banco..")
         }
     })
-        .done(function () {
+        .done(function (response) {
+            console.log(response)
+            console.log("falhou")
+        })
+        .fail(function (response) {
             alert("Usuário " + objCadastro.nome + " salvo com sucesso!");
         })
 }
 
 function limpaCamposCadastro() {
-    $("#cadastroNome").val('');
-    $("#cadastroSenha").val('');
+    console.log("TA LIMPANDO")
+    $("#ModalCadastros").modal('toggle');
 }

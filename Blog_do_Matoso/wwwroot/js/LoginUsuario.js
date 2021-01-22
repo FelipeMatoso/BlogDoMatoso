@@ -5,14 +5,17 @@ $("#formsLogin").submit(function (e) {
     let senhaLogin = $("#loginSenha").val();
 
     let objCadastro = MontaObjetoDeUsuario(nomeLogin, senhaLogin);
-    if (ValidaUsuarioNoBancoLogin(objCadastro) == true) {
-        console.log("entro validacao do banco e retornou true")
-        localStorage.setItem("nomeUsuario", objCadastro.nome)
+    let valida = ValidaUsuarioNoBancoLogin(objCadastro);
+    if (valida.sucess == true) {
+        console.log("entro validacao do banco e retornou true");
+        localStorage.setItem("nomeUsuario", objCadastro.nome);
+        localStorage.setItem("idUsuario", valida.usuarioId);
+
         document.location.reload(true);
     }
     else {
-        console.log("validou e nao tem Usuario existente")
-        limpaCamposCadastro()
+        console.log("validou e nao tem Usuario existente");
+        limpaCamposCadastro();
     }
 
 })
@@ -60,6 +63,7 @@ function limpaCamposCadastro() {
 
 $("#LogOut-btn").click(function () {
     localStorage.removeItem("nomeUsuario");
+    localStorage.removeItem("idUsuario")
     console.log("clicou botao");
     checaLogin();
     document.location.reload(true);

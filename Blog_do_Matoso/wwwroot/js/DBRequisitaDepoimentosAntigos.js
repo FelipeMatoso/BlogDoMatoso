@@ -2,8 +2,6 @@
 
 function Ajax1() {
 
-
-
     return $.ajax({
         method: "GET",
         url: "/home/PrimeiroRequestDBdeDepoimentos",
