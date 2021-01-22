@@ -1,7 +1,8 @@
 ﻿function checaLogin() {
     console.log("entro")
-    let algo = localStorage.getItem("nomeUsuario");
-    $("#IconeUsuario").text(`${algo}`)
+    let UserLogin = localStorage.getItem("nomeUsuario");
+    $("#IconeUsuario").text(`${UserLogin}`)
+    $("#MeuPerfilNome").text(`${UserLogin}`)
     EscondeCaixasDeLogin();
 
 }

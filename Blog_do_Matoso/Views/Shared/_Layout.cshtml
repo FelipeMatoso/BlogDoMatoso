@@ -41,8 +41,7 @@
 
             <div id="CaixaAcessoUsuario" class="navbar-collapse  text-dark collapse d-sm-inline-flex flex-sm-row">
                 <div id="CaixaUserLogado" class="btn-group" role="group" aria-label="Botao">
-                    <button id="IconeUsuario" type="button" class="btn btn-light"></button>
-
+                    <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="PaginaUsuario">Meu perfil</a>
                     <div class="btn-group" role="group">
                         <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         </button>
@@ -110,22 +109,16 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Nova Senha</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="NovaSenha" placeholder="nova senha">
-                            </div>
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nova Senha</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="NovaSenha" placeholder="nova senha">
                         </div>
-                        <div class="form-group row">
-                            <button type="button"  class="btn btn-info" >Trocar senha</button>
-                            <button type="button" class="btn btn-danger"> Apagar conta</button>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary"> Entrar!</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <button type="button" id="TrocaSenha-btn" class="btn btn-info">Trocar senha</button>
+                        <button type="button" id="ApagaConta-btn" class="btn btn-danger"> Apagar conta</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -146,12 +139,6 @@
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="cadastroNome" placeholder="nome de usuário">
                                 <span hidden class="alert-danger" id="usuarioExistente"> Usuário já <b>existente</b> </span>
-                                <div class="collapse" id="collapseExample">
-                                    <div class="card card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                         <div class="form-group row">
@@ -203,6 +190,7 @@
     <script src="~/js/PostaConteudo.js" asp-append-version="true"></script>
     <script src="~/js/CadastraUsuario.js" asp-append-version="true"></script>
     <script src="~/js/LoginUsuario.js" asp-append-version="true"></script>
+    <script src="~/js/ModificaDadosUsuario.js" asp-append-version="true"></script>
     @RenderSection("Scripts" , required: false)
 </body>
 </html>
