@@ -17,14 +17,14 @@ namespace Blog_do_Matoso.Business
             this.dBcontext=dBcontext;
         }
 
-        public bool LoginVerificaExistente(Usuarios usuario)
+        public object LoginVerificaExistente(Usuarios usuario)
         {
             var usuarioDB = dBcontext.Usuarios.FirstOrDefault(user => user.Senha==usuario.Senha && user.Nome==usuario.Nome );
 
             if (usuarioDB!=null)
-                return true;
+                return new {sucess=true , usuarioId = usuarioDB.Id };
             else
-                return false;
+                return new {sucess=false };
         }
     }
 }

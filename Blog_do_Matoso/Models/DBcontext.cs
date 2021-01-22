@@ -14,11 +14,10 @@ namespace Blog_do_Matoso.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Depoimentos>().HasKey(t => t.Id);
         }
 
         public DbSet<Depoimentos> Depoimentos { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Usuarios> Usuarios { get; set; }
 
 
     }

@@ -7,9 +7,11 @@ namespace Blog_do_Matoso.Models
     {
         [Key]
         public int Id { get; set; }
+
         [ForeignKey("Usuarios")]
-        public int IdUsuarioFK { get; set; }
-        public string Nome { get; set; }
+        public int IdUsuario { get; set; }
+        public string Nome
+        { get; set; }
         public string Depoimento { get; set; }
         public string Data { get; set; }
     }

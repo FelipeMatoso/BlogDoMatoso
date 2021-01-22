@@ -8,6 +8,6 @@ namespace Blog_do_Matoso.Interface
 {
     public interface ILoginUsuario
     {
-        bool LoginVerificaExistente(Usuarios usuario);
+        object LoginVerificaExistente(Usuarios usuario);
     }
 }

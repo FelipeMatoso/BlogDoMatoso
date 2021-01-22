@@ -21,13 +21,11 @@ namespace Blog_do_Matoso
 
             public object IniciaDB()
             {
-                Console.WriteLine(dBcontext.Depoimentos);
                 return dBcontext.Depoimentos;
             }
 
             public Depoimentos SalvaDepoimentoDB(Depoimentos depoimento)
             {
-                Console.WriteLine(depoimento);
                 dBcontext.Depoimentos.Add(depoimento);
                 dBcontext.SaveChanges();
                 return depoimento;
@@ -45,27 +43,44 @@ namespace Blog_do_Matoso
                 return false;
             }
 
-            public Usuarios CadastraUsuarioDB(Usuarios usuario)
+            public string CadastraUsuarioDB(Usuarios usuario)
             {
-                Console.WriteLine(usuario);
-                dBcontext.Usuarios.Add(usuario);
-                dBcontext.SaveChanges();
-                return usuario;
+                if (dBcontext.Usuarios.Add(usuario)!=null)
+                {
+                    dBcontext.SaveChanges();
+                    return "Salvo com sucess";
+                }
+                else
+                    return "Erro em Salvar no banco";
             }
 
-            public Usuarios ApagaUsuarioDB(Usuarios usuario)
+            public string ApagaUsuarioDB(Usuarios usuario)
             {
-                Usuarios usuarioDB = dBcontext.Usuarios.Find(usuario);
-                dBcontext.Usuarios.Remove(usuarioDB);
-                //implementar depois a limpeza dos depoimentos
-                dBcontext.SaveChanges();
-                return usuario;
+                var usuarioDB = dBcontext.Usuarios.FirstOrDefault(user => user.Nome==usuario.Nome&&user.Senha==usuario.Senha);
+                if (usuarioDB!=null)
+                {
+                    dBcontext.Usuarios.Remove(usuarioDB);
+                    //implementar depois a limpeza dos depoimentos
+                    dBcontext.SaveChanges();
+                    return "Apagou usuario";
+                }
+                return "Nao encontrou usuario para apagar";
+            }
+
+            public string DescriptografaSenha(string usuario)
+            {
+                var senha = dBcontext.Usuarios.FirstOrDefault(user => user.Nome==usuario);
+                if (senha==null)
+                {
+                    return "nao achou usuario";
+                }
+                else
+                    return senha.Senha;
             }
 
             public string AlteraSenhaUsuario(Usuarios usuario , string novaSenha)
             {
-                var usuarioDB = dBcontext.Usuarios.FirstOrDefault(user => user.Nome==usuario.Nome && user.Senha==usuario.Senha);
-
+                var usuarioDB = dBcontext.Usuarios.FirstOrDefault(user => user.Nome==usuario.Nome&&user.Id==usuario.Id);
                 if (usuarioDB!=null)
                 {
                     usuarioDB.Senha=novaSenha;
@@ -74,11 +89,19 @@ namespace Blog_do_Matoso
                     return "Senha alterada com sucesso";
                 }
                 else
-                    return  "Erro ao trocar senha";
+                    return "Erro ao trocar senha";
             }
 
+            public object PegaApenasDepoimentosUsuario()
+            {
+                Usuarios usuario = new Usuarios
+                {
+                    Nome="Felipe Modena" ,
+                    Senha="1234" ,
 
-
+                };
+                return dBcontext.Usuarios.Where(user => user.Nome==usuario.Nome&&user.Senha==usuario.Senha);
+            }
 
         }
 
