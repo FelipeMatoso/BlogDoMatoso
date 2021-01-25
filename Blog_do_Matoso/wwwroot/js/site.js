@@ -5,6 +5,7 @@ $(document).ready(function () {
     console.log("Funcao ready rodada em site.js")
     checaLogin();
     Ajax1();
+    AjaxDepoimentosPessoais();
 });
 
 

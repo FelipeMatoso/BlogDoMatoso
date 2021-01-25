@@ -33,7 +33,7 @@ function SubmitDica() {
         alert("Obrigado " + colaboradorNome + " por ajudar! Agredeço muito pela dica!")
         console.log(pessoa)
 
-        postaConteudo(pessoa);
+        montaDepoimento(pessoa,false);
         SalvaDepoimentoDB(pessoa);
     }
 

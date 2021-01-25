@@ -27,9 +27,11 @@ namespace Blog_do_Matoso
             }
             public object RequestDepoimentosPessoais(int idUsuario)
             {
-                //var <IList>depoimentos = dBcontext.Depoimentos.Where(user => user.IdUsuario==idUsuario);
+                if (idUsuario==0)
+                {
+                    return new Depoimentos{ Depoimento = "Você não está logado, favor logar para acessar o conteúdo dessa pagina" ,Nome="Deus", Data="30/01/1997"};
+                }
                 return dBcontext.Depoimentos.Where(depoimento => depoimento.IdUsuario==idUsuario);
-                //return new { algo = "deu bom aqui"};
             }
 
 

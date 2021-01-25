@@ -3,6 +3,7 @@
     let UserLogin = localStorage.getItem("nomeUsuario");
     $("#IconeUsuario").text(`${UserLogin}`)
     $("#MeuPerfilNome").text(`${UserLogin}`)
+    $("#MeuPerfilNickName-btn").html(`${UserLogin}`)
     EscondeCaixasDeLogin();
 
 }
