@@ -8,8 +8,11 @@ namespace Blog_do_Matoso
         object IniciaDB();
         Depoimentos SalvaDepoimentoDB(Depoimentos depoimento);
         bool CadastroValidaUsuarioExistenteDB(string nome);
-        Usuarios CadastraUsuarioDB(Usuarios usuario);
+        string CadastraUsuarioDB(Usuarios usuario);
         string AlteraSenhaUsuario(Usuarios usuario , string novaSenha);
-        Usuarios ApagaUsuarioDB(Usuarios usuario);
+        object PegaApenasDepoimentosUsuario();
+        string DescriptografaSenha(string usuario);
+        string ApagaUsuarioDB(Usuarios usuario);
+        object RequestDepoimentosPessoais(int idUsuario);
     }
 }

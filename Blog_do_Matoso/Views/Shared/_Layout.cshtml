@@ -41,12 +41,12 @@
 
             <div id="CaixaAcessoUsuario" class="navbar-collapse  text-dark collapse d-sm-inline-flex flex-sm-row">
                 <div id="CaixaUserLogado" class="btn-group" role="group" aria-label="Botao">
-                    <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="PaginaUsuario">Meu perfil</a>
+                    <a id="MeuPerfilNickName-btn" class="btn btn-light" asp-area="" asp-controller="Home" asp-action="PaginaUsuario">Meu perfil</a>
                     <div class="btn-group" role="group">
                         <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <button id="MeuPerfil-btn" class="dropdown-item" type="button" data-toggle="modal" data-target="#ModalMeuPerfil">Meu perfil</button>
+                            <button id="MeuPerfil-btn" class="dropdown-item" type="button" data-toggle="modal" data-target="#ModalMeuPerfil">Minhas preferências</button>
                             <button id="LogOut-btn" class="dropdown-item" type="button">Sair <i class="Tiny material-icons">exit_to_app</i></button>
                         </div>
                     </div>
@@ -185,6 +185,7 @@
 
     <script src="~/js/AutorizaComponentesLogin.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/Depoimentos_LikesEApagar.js" asp-append-version="true"></script>
     <script src="~/js/SubmitTexto.js" asp-append-version="true"></script>
     <script src="~/js/DBRequisitaDepoimentosAntigos.js" asp-append-version="true"></script>
     <script src="~/js/PostaConteudo.js" asp-append-version="true"></script>

@@ -1,5 +1,7 @@
 ﻿using Blog_do_Matoso.Models;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Blog_do_Matoso
@@ -23,6 +25,13 @@ namespace Blog_do_Matoso
             {
                 return dBcontext.Depoimentos;
             }
+            public object RequestDepoimentosPessoais(int idUsuario)
+            {
+                //var <IList>depoimentos = dBcontext.Depoimentos.Where(user => user.IdUsuario==idUsuario);
+                return dBcontext.Depoimentos.Where(depoimento => depoimento.IdUsuario==idUsuario);
+                //return new { algo = "deu bom aqui"};
+            }
+
 
             public Depoimentos SalvaDepoimentoDB(Depoimentos depoimento)
             {

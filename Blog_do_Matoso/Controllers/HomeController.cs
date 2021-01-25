@@ -54,6 +54,11 @@ namespace Blog_do_Matoso.Controllers
             return dataService.IniciaDB();
         }
 
+        public object RequestDepoimentosPessoais(int idUsuario)
+        {
+            return dataService.RequestDepoimentosPessoais(idUsuario);
+        }
+
 
 
 
@@ -70,6 +75,10 @@ namespace Blog_do_Matoso.Controllers
 
         }
 
+        public object ApagaDepoimentoDB(int idDepoimento)
+        {
+            return LoginUsuario.ApagaDepoimentoDB(idDepoimento);
+        }
         public object ValidaUserLogin(string nome , string senha)
         {
             Usuarios usuario = new Usuarios

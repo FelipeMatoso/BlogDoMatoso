@@ -20,14 +20,14 @@
 .grid-depoimentos {
     display: grid;
     grid-gap: 30px;
-    background: #774a50;
-    border-style: dotted;
+    background: #fedc7ccf;
+    border-style: double;
     border-radius: 20px;
     border-color: #000000;
     font-style: italic;
     padding: 6px;
     grid-template-columns: auto;
-    margin: 0 0 14px 0;
+    margin: 0 0 40px 0;
 }
 
 .depoimento-nome-classe {

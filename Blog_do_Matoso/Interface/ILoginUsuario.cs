@@ -9,5 +9,6 @@ namespace Blog_do_Matoso.Interface
     public interface ILoginUsuario
     {
         object LoginVerificaExistente(Usuarios usuario);
+        object ApagaDepoimentoDB(int idDepoimento);
     }
 }

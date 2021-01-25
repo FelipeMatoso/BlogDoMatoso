@@ -17,6 +17,7 @@ namespace Blog_do_Matoso.Business
             this.dBcontext=dBcontext;
         }
 
+
         public object LoginVerificaExistente(Usuarios usuario)
         {
             var usuarioDB = dBcontext.Usuarios.FirstOrDefault(user => user.Senha==usuario.Senha && user.Nome==usuario.Nome );
@@ -26,5 +27,22 @@ namespace Blog_do_Matoso.Business
             else
                 return new {sucess=false };
         }
+
+        public object ApagaDepoimentoDB(int idDepoimento)
+        {
+            Depoimentos depoimentos = dBcontext.Depoimentos.Find(idDepoimento);
+
+            if (depoimentos!=null)
+            {
+                dBcontext.Remove(depoimentos);
+                dBcontext.SaveChanges();
+                return depoimentos;
+            }
+            else
+            {
+                return depoimentos;
+            }
+        }
+
     }
 }
